@@ -13,7 +13,17 @@ class AuthController extends Controller
     }
 
     public function attemptLogin(Request $request){
-        dd($request->all());
+        $request->validate([
+            'email' => 'required|string',
+            'password' => 'required|string'
+        ]);
+        $credentials = ['email' => $request->email, 'password' => $request->password];
+        if(Auth::attempt($credentials, $request?->remember)){
+            $user = Auth::user();
+            return redirect()->route('home')->with('user', $user);
+        }else{
+            return redirect()->back()->withErrors(['error' => 'Credenciales incorrectas']);
+        }
     }
 
     public function showRegister(){
