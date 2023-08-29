@@ -8,32 +8,39 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    function showLogin(){
+    public function showLogin(){
         return View('auth.login');
     }
 
-    function attemptLogin(Request $request){
+    public function attemptLogin(Request $request){
         dd($request->all());
     }
 
-    function showRegister(){
+    public function showRegister(){
         return View('auth.register');
     }
 
-    function storeAccount(Request $request){
+    public function storeAccount(Request $request){
         $request->validate([
             'name' => 'required|string',
             'surname' => 'required|string',
             'email' => 'required|email',
             'phone' => 'required|integer',
+            'password' => 'required|min:6|confirmed'
         ]);
         $user = User::create([
             'name' => $request->name,
             'surname' => $request->surname,
             'email' => $request->email,
+            'password' => bcrypt($request->password),
             'phone' => $request->phone
         ]);
         Auth::login($user);
-        dd(Auth::user(), bcrypt('encriptar_esta_contraseña'));
+        return redirect()->route('home');
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('login');
     }
 }

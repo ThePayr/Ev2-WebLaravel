@@ -28,10 +28,29 @@
                                     <label for="email">Email</label>
                                 </div>
                                 <div class="form-floating mb-3">
+                                    <input class="form-control" id="email" type="password" placeholder="email"
+                                        name="password" />
+                                    <label for="password">Contraseña</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="email" type="password"
+                                    placeholder="password_confirmation" name="password_confirmation" />
+                                    <label for="password_confirmation">Repetir contraseña</label>
+                                </div>
+                                <div class="form-floating mb-3">
                                     <input class="form-control" id="phone" type="number" placeholder="Telefono"
                                         name="phone" />
                                     <label for="phone">Telefono</label>
                                 </div>
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
                                 <div class="d-flex justify-content-center mt-4 mb-0">
                                     <button class="btn btn-dark px-4" type="submit">Registrarse</button>
                                 </div>
@@ -40,15 +59,6 @@
                         <div class="card-footer text-center py-3 bg-light">
                             <div class="fs-6"><a href="{{ route('login') }}">Volver al inicio de sesión</a></div>
                         </div>
-                        @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
                     </div>
                 </div>
             </div>
