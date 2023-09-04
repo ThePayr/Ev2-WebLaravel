@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Models\Category;
 use App\Models\User;
+use App\Models\Vehicle;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,5 +35,15 @@ Route::group(['prefix' => '/register'], function(){
 Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('auth');
 
 Route::get('/', function () {
+    // Ejemplo
+    // $category = Category::create(['name' => 'SUV']);
+    // $vehicle = Vehicle::create([
+    //     'category_id' => $category->id,
+    //     'patent' => 'RJRJ11',
+    //     'year' => 2022,
+    //     'brand' => 'Kia',
+    //     'model' => 'Morning'
+    // ]);
+    // dd(Vehicle::with(['category'])->get());
     return view('welcome');
 });
