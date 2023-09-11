@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('model');
             $table->string('brand');
             $table->timestamps();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 
