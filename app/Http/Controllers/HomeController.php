@@ -2,17 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
     public function index(){
-        // Obtiene al usuario autenticado
         $authenticated_user = Auth::user();
-        // Retorna la vista ubicada en admin.home y con with le pasamos
-        // la variable a la plantilla, la clave es el nombre de la variable
-        // que estará disponible en la plantilla.
-        return View('admin.home')->with(['user' => $authenticated_user]);
+        // $categories = DB::table('categories')->get();
+        // dd($categories);
+        $categories = Category::withCount('vehicles')->get();
+        dd($categories);
+        return View('admin.home')->with([
+            'user' => $authenticated_user,
+            'categories' => $categories
+        ]);
     }
 }
