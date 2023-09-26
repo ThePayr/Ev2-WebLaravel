@@ -12,7 +12,11 @@ class DatabaseSeeder extends Seeder
     {
 
         $this->call([
-            SuvSeeder::class
+            SuvSeeder::class,
+            HatchbackSeeder::class,
+            PickupTruckSeeder::class,
+            SedanSeeder::class,
+            SportsCarSeeder::class,
         ]);
     }
 }
