@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\VehiclesController;
 use App\Models\Category;
 use App\Models\User;
 use App\Models\Vehicle;
@@ -30,6 +32,10 @@ Route::group(['prefix' => '/register'], function(){
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('auth');
+Route::post('/categories', [CategoriesController::class, 'store'])->name('categories.store')->middleware('auth');
+Route::post('/vehicles', [VehiclesController::class, 'store'])->name('vehicles.store')->middleware('auth');
+
+Route::delete('/vehicles/{id}', [VehiclesController::class, 'delete'])->name('vehicles.delete')->middleware('auth');
 
 Route::get('/', function () {
     return view('welcome');

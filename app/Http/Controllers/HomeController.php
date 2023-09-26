@@ -11,13 +11,13 @@ class HomeController extends Controller
 {
     public function index(){
         $authenticated_user = Auth::user();
-        // $categories = DB::table('categories')->get();
-        // dd($categories);
-        $categories = Category::withCount('vehicles')->get();
-        dd($categories);
+        // dd($categories); // El dd es su mejor alternativa para depurar el código
+        $categories = Category::with('vehicles')->orderBy('id', 'desc')->get();
         return View('admin.home')->with([
             'user' => $authenticated_user,
             'categories' => $categories
         ]);
+
     }
+
 }
