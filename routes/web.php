@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RentController;
 use App\Http\Controllers\VehiclesController;
 use App\Models\Category;
 use App\Models\User;
@@ -36,6 +37,8 @@ Route::post('/categories', [CategoriesController::class, 'store'])->name('catego
 Route::post('/vehicles', [VehiclesController::class, 'store'])->name('vehicles.store')->middleware('auth');
 
 Route::delete('/vehicles/{id}', [VehiclesController::class, 'delete'])->name('vehicles.delete')->middleware('auth');
+
+Route::get('/listrent', [RentController::class, 'listRent'])->name('listrent')->middleware('auth');
 
 Route::get('/', function () {
     return view('welcome');
