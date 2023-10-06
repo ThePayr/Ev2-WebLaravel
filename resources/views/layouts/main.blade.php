@@ -10,9 +10,31 @@
         @stack('css')
     </head>
     <body>
-        @yield('main-content')
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="{{ asset('js/scripts.js') }}"></script>
-        @stack('js')
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                    <div class="position-sticky">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Arriendos
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                        @yield('main-content')
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+                    <script src="{{ asset('js/scripts.js') }}"></script>
+                        @stack('js')
+                    </main>
+            </div>
+        </div>
     </body>
 </html>
