@@ -39,6 +39,7 @@ Route::post('/vehicles', [VehiclesController::class, 'store'])->name('vehicles.s
 Route::delete('/vehicles/{id}', [VehiclesController::class, 'delete'])->name('vehicles.delete')->middleware('auth');
 
 Route::get('/listrent', [RentController::class, 'listRent'])->name('listrent')->middleware('auth');
+Route::get('/newrent', [RentController::class, 'newRent'])->name('newrent')->middleware('auth');
 
 Route::get('/', function () {
     return view('welcome');

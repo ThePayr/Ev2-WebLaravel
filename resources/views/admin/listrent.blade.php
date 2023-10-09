@@ -1,16 +1,20 @@
 @extends('layouts.main')
-@section('main-content')
-
-<div class="container py-4">
-    <label class="d-flex justify-content-start" for="nombres"><strong>Datos del cliente</strong></label>
-    <div class="d-flex justify-content-end">
-        <a  class="btn btn-outline-primary" href="{{ route('logout') }}">Cerrar Sesión</a>
+<div class="bg-dark">
+    <div class="container py-4">
+        <div class="d-flex justify-content-end">
+            <a class="btn btn-outline-primary" href="{{ route('logout') }}">Cerrar Sesión</a>
+        </div>
     </div>
 </div>
-
+@section('main-content')
 <div class="container">
-    <h1>Arriendos</h1>
-    <button >Nuevo Arriendo</button>
+    <section>
+        <div class="header-and-button d-flex justify-content-between align-items-center">
+            <h1 class="header">Arriendos</h1>
+            <a class="btn btn-outline-primary" href="{{ route('newrent') }}">Nuevo Arriendo</a>
+        </div>
+    <hr/>
+    </section>
     <table class="table">
         <thead>
             <tr>
