@@ -18,11 +18,11 @@ return new class extends Migration
             $table->string('second_last_name');
             $table->string('rut');
             $table->string('email');
-            $table->unsignedBigInteger('patent');
+            $table->string('patent');
             $table->date('start_date');
             $table->date('return_date');
             $table->timestamps();
-            $table->foreign('patent')->references('id')->on('vehicles')->onDelete('cascade');
+            $table->foreign('patent')->references('patent')->on('vehicles')->onDelete('cascade');
         });
     }
 

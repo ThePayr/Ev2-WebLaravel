@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
 use App\Models\Rental;
+
 class RentController extends Controller
 {
     public function listRent(){
               // Consulta para obtener los datos de arriendos
               $rentals = Rental::all();
-
               return view('admin.listrent', ['rentals' => $rentals]);
     }
 
