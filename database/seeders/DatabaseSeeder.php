@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder
             PickupTruckSeeder::class,
             SedanSeeder::class,
             SportsCarSeeder::class,
-            ClientesSeeder::class,
             UserSeeder::class,
+            RentalSeeder::class
         ]);
     }
 }

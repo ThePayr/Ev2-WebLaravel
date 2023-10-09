@@ -17,7 +17,7 @@
     <div class="row mt-4">
         <!-- Columna 1: Datos del cliente -->
         <div class="col-md-6">
-            <label for="nombres"><strong>Datos del cliente</strong></label>
+            <label for="names"><strong>Datos del cliente</strong></label>
             <div class="input-group mt-2">
                 <span class="input-group-text">Nombres</span>
                 <input type="text" class="form-control" name="names">

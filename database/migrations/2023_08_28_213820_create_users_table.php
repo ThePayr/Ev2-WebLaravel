@@ -9,6 +9,10 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+    /**
+     * The above function creates a table named 'users' with columns for id, name, surname, email,
+     * password, remember_token, phone, and timestamps.
+     */
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
