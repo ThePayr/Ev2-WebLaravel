@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             SedanSeeder::class,
             SportsCarSeeder::class,
             ClientesSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }
