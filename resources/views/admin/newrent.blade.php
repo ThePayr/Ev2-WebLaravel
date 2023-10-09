@@ -1,11 +1,12 @@
 @extends('layouts.main')
-@section('main-content')
-
-<div class="container py-4">
-    <div class="d-flex justify-content-end">
-        <a  class="btn btn-outline-primary" href="{{ route('logout') }}">Cerrar Sesión</a>
+<div class="bg-dark">
+    <div class="container py-4">
+        <div class="d-flex justify-content-end">
+            <a class="btn btn-outline-primary" href="{{ route('logout') }}">Cerrar Sesión</a>
+        </div>
     </div>
 </div>
+@section('main-content')
 <div class="container">
     <section>
         <div class="header-and-button d-flex justify-content-between align-items-center">
@@ -49,11 +50,11 @@
             <label for="nombres"><strong>Sobre el prestamo</strong></label>
             <div class="input-group mt-2">
                 <span class="input-group-text">Fecha de Entrega</span>
-                <input type="text" class="form-control" name="fecha_entrega">
+                <input type="date" class="form-control" name="fecha_entrega">
             </div>
             <div class="input-group mt-2">
                 <span class="input-group-text">Fecha de Devolución</span>
-                <input type="text" class="form-control" name="fecha_devolucion">
+                <input type="date" class="form-control" name="fecha_devolucion">
             </div>
         </div>
     </div>

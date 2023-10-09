@@ -14,7 +14,7 @@
         </div>
     <hr/>
     </section>
-    <div class="header-and-button d-flex justify-content-between align-items-center">
+    <div class="d-flex justify-content-between align-items-center">
         <label><strong>Vehiculos existentes en cada categoría</strong></label>
         <label><strong>Total de arriendos registrados</strong></label>
     </div>
