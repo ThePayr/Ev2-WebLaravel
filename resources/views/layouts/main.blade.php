@@ -17,12 +17,12 @@
                         <ul class="nav flex-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="home">
-                                    Dashboard
+                                    <i class="fa-solid fa-house"></i> Dashboard
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="listrent">
-                                    Arriendos
+                                    <i class="fa-solid fa-file"></i> Arriendos
                                 </a>
                             </li>
                         </ul>
