@@ -27,22 +27,16 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($categoryCounts as $categoryCount)
                 <tr>
-                    <td >Categoría 1</td>
-                    <td style="text-align: center">5</td>
+                    <td>Categoría {{ $categoryCount->name }}</td>
+                    <td style="text-align: center">{{ $categoryCount->vehicle_count }}</td>
                 </tr>
-                <tr>
-                    <td>Categoría 2</td>
-                    <td style="text-align: center">4</td>
-                </tr>
-                <tr>
-                    <td>Categoría 3</td>
-                    <td style="text-align: center">2</td>
-                </tr>
+            @endforeach
             </tbody>
         </table>
         <div style="margin-left: 110px; margin-right: 110px">
-            <h1>5</h1>
+            <h1><label><strong>{{ $totalRentals }}</strong></label></h1>
         </div>
     </div>
 </div>
