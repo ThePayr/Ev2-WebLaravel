@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 class RentController extends Controller
 {
     public function listRent(){
-        return View('auth.listrent');
+        return View('admin.listrent');
+    }
+
+    public function newRent(){
+        return View('admin.newrent');
     }
 }

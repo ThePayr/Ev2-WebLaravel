@@ -1,23 +1,62 @@
 @extends('layouts.main')
-@section('main-content')
-
-<div class="container py-4">
-    <div class="d-flex justify-content-end">
-        <a class="btn btn-outline-primary" href="{{ route('logout') }}">Cerrar Sesión</a>
+<div class="bg-dark">
+    <div class="container py-4">
+        <div class="d-flex justify-content-end">
+            <a class="btn btn-outline-primary" href="{{ route('logout') }}">Cerrar Sesión</a>
+        </div>
     </div>
+</div>
+@section('main-content')
+<div class="container">
+    <section>
+        <div class="header-and-button d-flex justify-content-between align-items-center">
+            <h1 class="header">Dashboard</h1>
+        </div>
+    <hr/>
+    </section>
+    <div class="d-flex justify-content-between align-items-center">
+        <label><strong>Vehiculos existentes en cada categoría</strong></label>
+        <label><strong>Total de arriendos registrados</strong></label>
+    </div>
+    <div class="d-flex justify-content-between align-items-center">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Categoria</th>
+                    <th style="text-align: center">Total de vehiculos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td >Categoría 1</td>
+                    <td style="text-align: center">5</td>
+                </tr>
+                <tr>
+                    <td>Categoría 2</td>
+                    <td style="text-align: center">4</td>
+                </tr>
+                <tr>
+                    <td>Categoría 3</td>
+                    <td style="text-align: center">2</td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="margin-left: 110px; margin-right: 110px">
+            <h1>5</h1>
+        </div>
+    </div>
+</div>
+@endsection
 
-    <h4 class="my-4">soy el desarrollador de guugul que se va, procedo a dejar algunas pruebas que realicé</h4>
-    <hr />
-
-    @if($errors->any())
+    {{-- @if($errors->any())
         <div class="alert alert-danger my-4" role="alert">
             {!! implode('', $errors->all('<div>:message</div>')) !!}
         </div>
-    @endif
+    @endif --}}
 
 
 
-
+{{--
     <section class="section-separator">
         <h5>Crear nuevas categorias</h5>
         <form action="{{ route('categories.store') }}" method="POST">
@@ -26,49 +65,9 @@
             <input type="submit" value="Crear categoría">
         </form>
     </section>
-    <hr />
+    <hr /> --}}
 
-
-
-
-
-    <section class="section-separator">
-        <h5>Agregar vehiculos a una categoria</h5>
-        <form action="{{ route('vehicles.store') }}" method="POST">
-            @csrf
-            <span>Categorias</span>
-            <select class="form-select" name="category_id">
-                @foreach($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->name }}</option>
-                @endforeach
-            </select>
-            <div class="input-group mt-2">
-                <span class="input-group-text">Patente</span>
-                <input type="text" class="form-control" name="patent">
-            </div>
-            <div class="input-group mt-2">
-                <span class="input-group-text">Año</span>
-                <input type="number" class="form-control" name="year">
-            </div>
-            <div class="input-group mt-2">
-                <span class="input-group-text">Modelo</span>
-                <input type="text" class="form-control" name="model">
-            </div>
-
-            <div class="input-group mt-2">
-                <span class="input-group-text">Marca</span>
-                <input type="text" class="form-control" name="brand">
-            </div>
-            <input type="submit" value="Agregar vehiculo" class="btn btn-primary mt-4">
-        </form>
-    </section>
-    <hr />
-
-
-
-
-
-    <h5 class="section-separator mb-4">Listar nuevas categorias</h5>
+    {{-- <h5 class="section-separator mb-4">Listar nuevas categorias</h5>
     @foreach($categories as $key => $category)
         <section class="mb-5">
             <h6>Categoría: {{ $category->name }} ( id: {{ $category->id }})</h6>
@@ -99,7 +98,7 @@
      Debe enviar la petición dentro de un formulario y especificar el metodo con @method().
      El @csrf generará un token unico para el formulario que laravel gestiona por detrás de escena, con ello previene ataques maliciosos en los formularios
 --}}
-                        <form action="{{ route('vehicles.delete', ['id' => $vehicle->id]) }}" method="POST">
+                        {{-- <form action="{{ route('vehicles.delete', ['id' => $vehicle->id]) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <input type="submit" value="Eliminar" class="btn btn-outline-secondary btn-sm">
@@ -121,4 +120,4 @@
         margin-top: 80px;
     }
 </style>
-@endpush
+@endpush --}}
