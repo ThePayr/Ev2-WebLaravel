@@ -39,7 +39,13 @@ Route::post('/vehicles', [VehiclesController::class, 'store'])->name('vehicles.s
 Route::delete('/vehicles/{id}', [VehiclesController::class, 'delete'])->name('vehicles.delete')->middleware('auth');
 
 Route::get('/listrent', [RentController::class, 'listRent'])->name('listrent')->middleware('auth');
-Route::get('/newrent', [RentController::class, 'newRent'])->name('newrent')->middleware('auth');
+
+
+Route::group(['prefix' => '/newrent'], function(){
+    Route::get('/', [RentController::class, 'showNewRent'])->name('newrent')->middleware('auth');
+    Route::post('/', [RentController::class, 'createNewRent'])->name('register.rent')->middleware('auth');
+});
+
 
 Route::get('/', function () {
     return view('welcome');

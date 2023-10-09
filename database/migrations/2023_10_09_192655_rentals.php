@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('second_last_name');
             $table->string('rut');
             $table->string('email');
-            $table->string('patent');
+            $table->string('patent', 6)->unique();
             $table->date('start_date');
             $table->date('return_date');
             $table->timestamps();
