@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Vehicle;
 use Illuminate\Http\Request;
 use App\Models\Rental;
 class RentController extends Controller
@@ -14,6 +15,11 @@ class RentController extends Controller
     }
 
     public function newRent(){
-        return View('admin.newrent');
+        $vehicles = Vehicle::whereDoesntHave('rentals')->get();
+        $vehiclesNotRelated = Vehicle::whereDoesntHave('rentals')->get();
+        return View('admin.newrent')->with([
+            'vehicles' => $vehicles,
+            'vehiclesNotRelated' => $vehiclesNotRelated,
+        ]);
     }
 }
