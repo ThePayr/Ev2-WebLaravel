@@ -24,7 +24,7 @@ class RentalSeeder extends Seeder
                 'second_last_name' => 'Leal',
                 'rut' => '12345678-k',
                 'email' => 'csantana@email.com',
-                'patent' => $vehicle->id,
+                'patent' => $vehicle->patent,
                 'start_date' => '2023-01-01',
                 'return_date' => '2023-01-23',
             ]);

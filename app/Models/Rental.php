@@ -22,6 +22,6 @@ class Rental extends Model
     ];
 
     public function patent () {
-        return $this->belongsTo(Vehicle::class, 'patent', 'id');
+        return $this->belongsTo(Vehicle::class, 'patent', 'id')->select('patent');
     }
 }
