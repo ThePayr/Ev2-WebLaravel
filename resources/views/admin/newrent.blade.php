@@ -1,9 +1,8 @@
 @extends('layouts.main')
 <div class="bg-dark">
-    <div class="container py-4">
-        <div class="d-flex justify-content-end">
-            <a class="btn btn-outline-primary" href="{{ route('logout') }}">Cerrar Sesión</a>
-        </div>
+    <div class="header-and-button d-flex justify-content-between align-items-center">
+        <h3 style="color:white"><strong>ArriendAPP</strong></h3>
+        <a class="btn btn-outline-primary" href="{{ route('logout') }}">Cerrar Sesión</a>
     </div>
 </div>
 @section('main-content')
@@ -47,7 +46,7 @@
                     <span class="input-group-text">Patente</span>
                     <select name="patent" id="patent">
                         @foreach ($vehicles as $vehicles)
-                            <option value="{{ $vehicles -> id }}">{{ $vehicles -> patent }}</option>
+                            <option value="{{ $vehicles->id }}">{{ $vehicles->patent }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -66,5 +65,18 @@
         <div class="d-flex justify-content-end mt-4">
             <input type="submit" value="Guardar" class="btn btn-primary">
         </div>
+        <hr />
+        <label><strong>Vehiculos disponibles</strong></label>
+        <table class="table table-bordered">
+            <tbody>
+                @foreach ($availableVehicles as $vehicle)
+                    <tr>
+                        <td>{{ $vehicle->brand }}<br>{{ $vehicle->model }}<br>{{ $vehicle->year }}</td>
+                        <td style="text-align: center">{{ $vehicle->patent }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+
     </div>
 @endsection
