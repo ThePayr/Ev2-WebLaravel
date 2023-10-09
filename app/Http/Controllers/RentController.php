@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Rental;
 class RentController extends Controller
 {
     public function listRent(){
-        return View('admin.listrent');
+              // Consulta para obtener los datos de arriendos
+              $rentals = Rental::all();
+
+              return view('admin.listrent', ['rentals' => $rentals]);
     }
 
     public function newRent(){

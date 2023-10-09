@@ -1,4 +1,5 @@
 @extends('layouts.main')
+
 <div class="bg-dark">
     <div class="container py-4">
         <div class="d-flex justify-content-end">
@@ -6,6 +7,7 @@
         </div>
     </div>
 </div>
+
 @section('main-content')
 <div class="container">
     <section>
@@ -13,8 +15,9 @@
             <h1 class="header">Arriendos</h1>
             <a class="btn btn-outline-primary" href="{{ route('newrent') }}">Nuevo Arriendo</a>
         </div>
-    <hr/>
+        <hr/>
     </section>
+
     <table class="table">
         <thead>
             <tr>
@@ -22,21 +25,21 @@
                 <th>RUT</th>
                 <th>Patente</th>
                 <th>Entrega</th>
-                <th>Devolucion</th>
+                <th>Devolución</th>
             </tr>
         </thead>
         <tbody>
-            <!-- Aquí puedes incluir dinámicamente filas de datos de proveedores -->
-            <!-- Ejemplo de fila de datos (puedes repetir para cada proveedor) -->
-            <tr>
-                <td>Juan</td>
-                <td>10.100.100-1</td>
-                <td>WK 70 69</td>
-                <td>12-08-2023</td>
-                <td>22-08-2023</td>
-            </tr>
-            <!-- Fin del ejemplo -->
+            @foreach($rentals as $rental)
+                <tr>
+                    <td>{{ $rental->name }}</td>
+                    <td>{{ $rental->rut }}</td>
+                    <td>{{ $rental->patent }}</td>
+                    <td>{{ $rental->start_date }}</td>
+                    <td>{{ $rental->return_date }}</td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
 </div>
 @endsection
+
