@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
 
+
 class VehiclesController extends Controller
 {
     public function store(Request $request){

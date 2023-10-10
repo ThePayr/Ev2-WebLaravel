@@ -39,7 +39,7 @@ Route::post('/vehicles', [VehiclesController::class, 'store'])->name('vehicles.s
 Route::delete('/vehicles/{id}', [VehiclesController::class, 'delete'])->name('vehicles.delete')->middleware('auth');
 
 Route::get('/listrent', [RentController::class, 'listRent'])->name('listrent')->middleware('auth');
-
+Route::delete('/listrent/{id}', [RentController::class, 'delete'])->name('rent.delete')->middleware('auth');
 
 Route::group(['prefix' => '/newrent'], function(){
     Route::get('/', [RentController::class, 'showNewRent'])->name('newrent')->middleware('auth');

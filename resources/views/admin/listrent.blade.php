@@ -23,16 +23,24 @@
                     <th>Patente</th>
                     <th>Entrega</th>
                     <th>Devolución</th>
+                    <th>Accion</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($rentals as $rental)
                     <tr>
-                        <td>{{ $rental->name }}</td>
+                        <td>{{ $rental->name }} </td>
                         <td>{{ $rental->rut }}</td>
                         <td>{{ $rental->patent }}</td>
                         <td>{{ $rental->start_date }}</td>
                         <td>{{ $rental->return_date }}</td>
+                        <td>
+                            <form action="{{ route('rent.delete', $rental->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm">DELETE</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
