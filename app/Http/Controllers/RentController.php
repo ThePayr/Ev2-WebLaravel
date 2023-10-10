@@ -9,13 +9,14 @@ use App\Models\Rental;
 class RentController extends Controller
 {
     public function listRent(){
-              // Consulta para obtener los datos de arriendos
-              $rentals = Rental::with('vehicle')->get();
+        // Consulta para obtener los datos de arriendos
+        $rentals = Rental::with('vehicle')->get();
 
-              return view('admin.listrent', ['rentals' => $rentals]);
+        return view('admin.listrent', ['rentals' => $rentals]);
     }
 
-    public function showNewRent(){
+    public function showNewRent()
+    {
         $vehicles = Vehicle::whereDoesntHave('rentals')->get();
         $availableVehicles = Vehicle::whereDoesntHave('rentals')->get();
         return View('admin.newrent')->with([
@@ -24,7 +25,8 @@ class RentController extends Controller
         ]);
     }
 
-    public function createNewRent(Request $request){
+    public function createNewRent(Request $request)
+    {
         $request->validate([
             'names' => 'required',
             'last_name' => 'required',
@@ -35,7 +37,23 @@ class RentController extends Controller
             'fecha_entrega' => 'required|date',
             'fecha_devolucion' => 'required|date',
         ]);
+        // Verifica si existen arriendos que se superponen con las fechas proporcionadas
+        $start_date = $request->input('fecha_entrega');
+        $return_date = $request->input('fecha_devolucion');
 
+        $overlappingRentals = Rental::where(function ($query) use ($start_date, $return_date) {
+            $query->whereBetween('start_date', [$start_date, $return_date])
+                ->orWhereBetween('return_date', [$start_date, $return_date])
+                ->orWhere(function ($query) use ($start_date, $return_date) {
+                    $query->where('start_date', '<=', $start_date)
+                        ->where('return_date', '>=', $return_date);
+                });
+        })->get();
+
+        // Si existen arriendos que se superponen, muestra un mensaje de error
+        if ($overlappingRentals->count() > 0) {
+            return redirect()->route('newrent')->with('error', 'Las fechas ya están ocupadas por otros arriendos.');
+        }
         // Crea un nuevo arrendatario en la base de datos
         Rental::create([
             'name' => $request->input('names'),
@@ -50,5 +68,4 @@ class RentController extends Controller
 
         return redirect()->route('listrent'); // Redirecciona a la lista de arriendos o a donde desees
     }
-
 }
