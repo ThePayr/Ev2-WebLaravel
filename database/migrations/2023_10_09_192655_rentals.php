@@ -22,7 +22,7 @@ return new class extends Migration
             $table->date('start_date');
             $table->date('return_date');
             $table->timestamps();
-            $table->foreign('patent')->references('patent')->on('vehicles')->onDelete('cascade');
+            $table->foreign('id')->references('id')->on('vehicles')->onDelete('cascade');
         });
     }
 
