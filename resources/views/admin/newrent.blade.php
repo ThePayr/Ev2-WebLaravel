@@ -7,6 +7,11 @@
 </div>
 @section('main-content')
     <div class="container">
+        @if(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
         <section>
             <div class="header-and-button d-flex justify-content-between align-items-center">
                 <h1 class="header">Nuevo Arriendo</h1>
