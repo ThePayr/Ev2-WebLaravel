@@ -21,23 +21,23 @@
                     <label for="names"><strong>Datos del cliente</strong></label>
                     <div class="input-group mt-2">
                         <span class="input-group-text">Nombres</span>
-                        <input type="text" class="form-control" name="names">
+                        <input type="text" class="form-control" name="names" id="names">
                     </div>
                     <div class="input-group mt-2">
                         <span class="input-group-text">Apellido Paterno</span>
-                        <input type="text" class="form-control" name="last_name">
+                        <input type="text" class="form-control" name="last_name" id="last_name">
                     </div>
                     <div class="input-group mt-2">
                         <span class="input-group-text">Apellido Materno</span>
-                        <input type="text" class="form-control" name="second_last_name">
+                        <input type="text" class="form-control" name="second_last_name" id="second_last_name">
                     </div>
                     <div class="input-group mt-2">
                         <span class="input-group-text">RUT</span>
-                        <input type="text" class="form-control" name="rut">
+                        <input type="text" class="form-control" name="rut" id="rut">
                     </div>
                     <div class="input-group mt-2">
                         <span class="input-group-text">Email</span>
-                        <input type="text" class="form-control" name="email">
+                        <input type="text" class="form-control" name="email" id="email">
                     </div>
                 </div>
 
@@ -55,11 +55,11 @@
                     <label for="nombres"><strong>Sobre el prestamo</strong></label>
                     <div class="input-group mt-2">
                         <span class="input-group-text">Fecha de Entrega</span>
-                        <input type="date" class="form-control" name="fecha_entrega">
+                        <input type="date" class="form-control" name="fecha_entrega" id="fecha_entrega">
                     </div>
                     <div class="input-group mt-2">
                         <span class="input-group-text">Fecha de Devolución</span>
-                        <input type="date" class="form-control" name="fecha_devolucion">
+                        <input type="date" class="form-control" name="fecha_devolucion" id="fecha_devolucion">
                     </div>
                 </div>
             </div>

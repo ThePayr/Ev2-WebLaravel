@@ -26,11 +26,11 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($rentals as $rental)
+                @foreach($rentals as $rental)
                     <tr>
                         <td>{{ $rental->name }}</td>
                         <td>{{ $rental->rut }}</td>
-                        <td>{{ $rental->patent }} </td>
+                        <td>{{ $rental->patent }}</td>
                         <td>{{ $rental->start_date }}</td>
                         <td>{{ $rental->return_date }}</td>
                     </tr>
