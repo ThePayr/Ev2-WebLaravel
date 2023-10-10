@@ -5,13 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
 use App\Models\Rental;
-use Illuminate\Support\Facades\DB;
-
 
 class RentController extends Controller
 {
     public function listRent(){
-              // Consulta para obtener los datos de arriendos
         $rentals = Rental::all();
 
         return view('admin.listrent', ['rentals' => $rentals]);
@@ -70,21 +67,4 @@ class RentController extends Controller
 
         return redirect()->route('listrent'); // Redirecciona a la lista de arriendos o a donde desees
     }
-
-
-    public function delete($id){
-
-        $rentals = Rental::find($id);
-    if (!$rentals) {
-        return redirect()->route('listrent')->with('error', 'The vehicle dont exist.');
-    }
-
-    DB::transaction(function () use ($rentals) {
-
-        $rentals->delete();
-    });
-
-    return redirect()->route('listrent')->with('success', 'the rent has been remove.');
-}
-
 }
