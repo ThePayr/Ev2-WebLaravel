@@ -16,10 +16,10 @@ class RentController extends Controller
 
     public function showNewRent(){
         $vehicles = Vehicle::whereDoesntHave('rentals')->get();
-        $vehiclesNotRelated = Vehicle::whereDoesntHave('rentals')->get();
+        $availableVehicles = Vehicle::whereDoesntHave('rentals')->get();
         return View('admin.newrent')->with([
             'vehicles' => $vehicles,
-            'vehiclesNotRelated' => $vehiclesNotRelated,
+            'availableVehicles' => $availableVehicles,
         ]);
     }
 
