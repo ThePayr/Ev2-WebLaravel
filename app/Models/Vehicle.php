@@ -18,6 +18,6 @@ class Vehicle extends Model
     }
 
     public function rentals () {
-        return $this->hasMany(Rental::class, 'patent')->select('patent');
+        return $this->hasMany(Rental::class, 'patent');
     }
 }

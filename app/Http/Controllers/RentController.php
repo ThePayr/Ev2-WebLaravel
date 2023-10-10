@@ -10,7 +10,8 @@ class RentController extends Controller
 {
     public function listRent(){
               // Consulta para obtener los datos de arriendos
-              $rentals = Rental::all();
+              $rentals = Rental::with('vehicle')->get();
+
               return view('admin.listrent', ['rentals' => $rentals]);
     }
 
