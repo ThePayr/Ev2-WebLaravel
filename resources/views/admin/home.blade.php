@@ -1,9 +1,8 @@
 @extends('layouts.main')
 <div class="bg-dark">
-    <div class="container py-4">
-        <div class="d-flex justify-content-end">
-            <a class="btn btn-outline-primary" href="{{ route('logout') }}">Cerrar Sesión</a>
-        </div>
+    <div class="header-and-button d-flex justify-content-between align-items-center">
+        <h3 style="color:white"><strong>ArriendAPP</strong></h3>
+        <a class="btn btn-outline-primary" href="{{ route('logout') }}">Cerrar Sesión</a>
     </div>
 </div>
 @section('main-content')
